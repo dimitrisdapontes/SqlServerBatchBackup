@@ -70,6 +70,7 @@ namespace SqlServerBatchBackup
                 using (var command = new SqlCommand(sql, connection))
                 {
                     connection.Open();
+                    command.CommandTimeout = connection.ConnectionTimeout;
                     command.ExecuteNonQuery();
                 }
 
